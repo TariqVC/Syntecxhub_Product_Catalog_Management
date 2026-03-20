@@ -145,10 +145,10 @@ const deleteProduct = async (req, res) => {
 const getCategoryStats = async (req, res) => {
   try {
     const stats = await Product.aggregate([
-      // Stage 1: only active products
+      
       { $match: { isActive: true } },
 
-      // Stage 2: group by category
+      
       {
         $group: {
           _id:          '$category',
@@ -160,7 +160,7 @@ const getCategoryStats = async (req, res) => {
         },
       },
 
-      // Stage 3: shape the output
+      
       {
         $project: {
           _id:           0,
@@ -173,7 +173,7 @@ const getCategoryStats = async (req, res) => {
         },
       },
 
-      // Stage 4: sort by most products
+      
       { $sort: { totalProducts: -1 } },
     ]);
 
