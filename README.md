@@ -1,0 +1,2 @@
+# Syntecxhub_Product_Catalog_Management
+Syntecxhub assignment part 2
